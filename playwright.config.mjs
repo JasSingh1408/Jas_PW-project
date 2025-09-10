@@ -1,5 +1,5 @@
 // @ts-check
-import { chromium, defineConfig, devices } from '@playwright/test';
+import { chromium, defineConfig, devices } from 'playwright/test';
 
 /**
  * Read environment variables from file.

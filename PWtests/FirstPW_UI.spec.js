@@ -1,4 +1,4 @@
-const {test, expect} = require ('@playwright/test');
+const {test, expect} = require ('playwright/test');
 
 //const mean constant in javaScript which is dataType in JS.
 // expect is coming from annotation and it is a fixture for assertions.

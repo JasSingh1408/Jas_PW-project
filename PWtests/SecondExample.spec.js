@@ -1,4 +1,4 @@
-const {test, expect} = require ('@playwright/test');
+const {test, expect} = require ('playwright/test');
 const { isContext } = require('vm');
 
 test('Get first product name',async ({page})=>
