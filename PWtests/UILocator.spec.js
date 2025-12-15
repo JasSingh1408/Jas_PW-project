@@ -10,8 +10,10 @@ test('Get error message',async ({page})=>
     const SignBtn = page.locator('#signInBtn')
     //assertion
     
+   
 
     /// locator can be found on the UI using css and xpath. But css is default and mostly used in PW.
+
     //await userName.fill('rahulsetting');
     await page.locator('[name=password]').fill('learning');
     //await SignBtn.click();

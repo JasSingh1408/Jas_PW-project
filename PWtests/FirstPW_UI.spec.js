@@ -8,10 +8,10 @@ const {test, expect} = require ('playwright/test');
 //{
 //code to test
 //step 1 - open browser
-// await //await is required to let the executor know that net code cannot run before the above.
+// await //await is required to let the executor know that next code cannot run before the above.
 //step 2 - enter UN/PSWD
 // await 
-//await is required to let the executor know that net code cannot run before the above.
+//await is required to let the executor know that next code cannot run before the above.
 //Step 3- click login
 //});
 

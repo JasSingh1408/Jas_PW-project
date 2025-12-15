@@ -1,5 +1,5 @@
 const {test, expect} = require ('playwright/test');
-const { isContext } = require('vm');
+//const { isContext } = require('vm');
 
 test('Get first product name',async ({page})=>
 {
@@ -26,7 +26,7 @@ test('Get first product name',async ({page})=>
     const allText = await cards.allTextContents();
     console.log(allText);
 });
-
+//training exercise - 18
 test('UIControls name',async ({page})=>
 {
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
@@ -35,7 +35,7 @@ test('UIControls name',async ({page})=>
     const userName = page.locator('#username');
     const SignBtn = page.locator('#signInBtn');
     const passWord = page.locator('#password');   
-    const dropdown = page.locator('select.form-control');
+    const dropdown = page.locator('select.form-control'); // used tagName.class as only .class is returning more than 1 elements in dom
   
     await userName.fill('rahulshettyacademy');
     await passWord.fill('learning');
@@ -84,19 +84,21 @@ test.only('BlinkTest case',async ({browser})=>
     const docLink = page.locator("[href*='documents-request']");
     await expect(docLink).toHaveAttribute("class","blinkingText");
 
-    //While work on newpage:
+    //when working on newpage:
     // we have inform the code that new page is coming in the context of the browser. so we use context.waitForEvent("page"), see below.
     // but when we inform the code that new page is opening then it start looking for new page not before. so we do the click action after informing line.
 
-    // Lecture 20- the below 2 lines of code need to be executed asynchronously as the page2 will not get value if the click function is not executed.
+    // Lecture 21  - the below 2 lines of code need to be executed asynchronously as the page2 will not get value if the click function is not executed.
     // here we introduce Promise (pending,rejected,fulfilled) where the lines will work async mode to get all the lines into it to be fulfilled.
     // promise work in array mode where all the lines are considered as one array element
-   
+    // [termPage] is the name of the array
+
     const [termPage] = await Promise.all([
     context.waitForEvent('page'),// listening for new page
     docLink.click(),
     ])
 
+    // the above 2 steps have to be fulfilled for the array to come out. 
     const text = await  termPage.locator(".red").textContent();
 
     //how to split the string/text - text.split("delimiter") where left side string will be in index 0 and right side string in index 1.
@@ -107,8 +109,10 @@ test.only('BlinkTest case',async ({browser})=>
     await userName.fill(domain);
     //await page.pause();
 
-    //when we enter a value in a text box, ".textContent" will not return any value as the value entered is not part of dom but user inserted it.
+    //chapter 22 - when we enter a value in a text box, ".textContent" will not return any value as the value entered is not part of dom but user inserted it.
     // to find the value inserted by the script use ".inputValue" - see example below.
 
     console.log(await userName.inputValue());
+    //await page.pause();
+
 });

@@ -1,0 +1,17 @@
+== group run
+
+npx playwright test
+
+> UI test runner
+npx playwirght test --ui
+
+npx playwirght test --debug
+
+== single test run
+
+npx playwright test
+
+npx playwirght test/E2E --ui
+
+>debug mode
+npx playwirght test/E2E --debug
