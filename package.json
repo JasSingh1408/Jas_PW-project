@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "playwright": "^1.55.0"
+  },
+
+  "scripts":{
+    "test": "npx playwright test  PWtests/apiTest.spec.js --headed"
   }
 }
