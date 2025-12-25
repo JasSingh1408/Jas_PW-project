@@ -1,5 +1,5 @@
 const {test, expect, request} = require ('playwright/test');
-const {APiUtils} = require('./utils/APiUtils');
+const {APiUtils} = require('../utils/APiUtils');
 
 // let's save the payload which is json/JS format into a variable. in PW, use don't give "" for keys in "key":"value" pairs.
 
@@ -12,12 +12,13 @@ let response;
 
 test.beforeAll( async()=>
 {
+    // calling the APiUtils class from APiUtils.js where API calls are made to Login and Create Order.
     const apiContext = await request.newContext();
     const apiUtils = new APiUtils(apiContext,payload);
     response = await apiUtils.createOrder(orderPayload);
 })
 
-test('E2E Test',async ({page})=>
+test('@API E2E Test',async ({page})=>
 {
     // here we will insert our javascript which will store the cookie(token) into the application background.
     // this will behave as UI login
@@ -33,14 +34,11 @@ test('E2E Test',async ({page})=>
     //const tableRows = allRows.locator("th");
 
     await allRows.first().waitFor();
-    
-   await allRows.filter({hasText: response.orderId}).getByRole("button",{name:'View'}).click();
+    await allRows.filter({hasText: response.orderId}).getByRole("button",{name:'View'}).click();
     //await allRows.filter({hasText: cleanOrderId}).getByText("button").first().click();
 
     await page.pause();
-
     //const viewOrderId = await page.locator(".col-text").textContent();
-    
     //expect(viewOrderId===cleanOrderId).toBeTruthy();
 
 });

@@ -6,7 +6,6 @@ test.beforeAll( async({browser})=>
 {
     const browserContext = await browser.newContext();
     const page = await browserContext.newPage();
-
     const email = "jassingh@gmail.com"
     const userName = page.locator('#userEmail');
     const passWord = page.locator('#userPassword');

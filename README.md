@@ -44,3 +44,19 @@ this do function like click or isVisible()
 getByTitle
 
 getByTestId
+
+
+---- for parallel or serial execution:
+
+use Workers: <number>.. by default it is 5.
+this starts the execution of 5 test files in parallel but the tests in the files will be sequential manners.
+
+for execute the tests also in the files, use 
+test.describe.configure({mode:'parallel'});
+
+for excution of tests in a inter-dependent mode, use 
+test.describe.configure({mode:'serial'});
+
+tagging in test execution:
+use tags like - @API to separate your testcases for execution. helpful for sanity, regression, testdata or similar
+how to execute - npx playwright test --grep "@API"

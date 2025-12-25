@@ -1,5 +1,6 @@
 const {test, expect} = require ('playwright/test');
 
+test.describe.configure({mode:'serial'});
 test('dialogs', async ({page}) =>
 {
 
@@ -17,16 +18,16 @@ test('dialogs', async ({page}) =>
     await page.locator('#confirmbtn').click();
 
     // to hoverover on any option on 
-    await page.locator('#mousehover').hover();
+    await page.locator('#mousehove').hover();
     await page.getByText('Reload').click();
 
-    await page.pause();
+    //await page.pause();
 
 });
 
 // to handle frames on the web application - which have html tag as "iframe" or "frameset". Switch to frame name or id.
 
-test('frames', async ({page}) =>
+test('@web frames', async ({page}) =>
 {
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
 

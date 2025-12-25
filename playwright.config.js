@@ -14,6 +14,7 @@ import { chromium, defineConfig, devices } from 'playwright/test';
  */
 export default defineConfig({
     testDir: './PWtests', // which tests to run
+    retries: 2,
     timeout: 30 *1000, // timeouts if any. this can be removed for default value which is 30 seconds.
     expect : {
         timeout: 15 *1000, // assertion timeouts if any. this can be removed for default value which is 30 seconds.
@@ -23,8 +24,8 @@ export default defineConfig({
 
   use: {
     browserName: 'chromium', // which browser to use
-    headless : false,
-    //screenshot: 'on',
+    headless : false, // false or true or nothing
+    screenshot: 'on', //off, on, retain-on-failure,
     trace: 'retain-on-failure' //off, on, retain-on-failure,
 
   },

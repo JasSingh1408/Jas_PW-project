@@ -2,8 +2,10 @@
   "devDependencies": {
     "playwright": "^1.55.0"
   },
-
-  "scripts":{
+  "scripts": {
     "test": "npx playwright test  PWtests/apiTest.spec.js --headed"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
   }
 }
